@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "XvjskBGB1CuMIMZ4KLEneTqOrjXrr33hozVsOFqMFnQhp1wKSPtMySG5c1ffu6/dqzpoPGq+3UMxtu/EAG2Hsg==",
+  "success": true,
+  "projectFilePath": "E:\\Entra21_files\\CSharp-Projects_and_Excercises\\Testes_Unitarios_First_CSharp_Exercises_Entra21\\Exercise8\\Exercise8.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Marcos\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Marcos\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
