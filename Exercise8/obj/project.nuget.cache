@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "XvjskBGB1CuMIMZ4KLEneTqOrjXrr33hozVsOFqMFnQhp1wKSPtMySG5c1ffu6/dqzpoPGq+3UMxtu/EAG2Hsg==",
+  "dgSpecHash": "8rHYKYNVa9Db2ZMRRT+Q/yG0JcIRY5hqqKlMydTTW4i+YEgfTRzHUrsY0OLiWFwnCNkZejwecuWv7B5I+82MJQ==",
   "success": true,
-  "projectFilePath": "E:\\Entra21_files\\CSharp-Projects_and_Excercises\\Testes_Unitarios_First_CSharp_Exercises_Entra21\\Exercise8\\Exercise8.csproj",
+  "projectFilePath": "/home/marckrda/ws-csharp-entra21/Testes-Unitarios-First-Exercise-Csharp-Entra21/Exercise8/Exercise8.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Marcos\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Marcos\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "/home/marckrda/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/home/marckrda/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }
