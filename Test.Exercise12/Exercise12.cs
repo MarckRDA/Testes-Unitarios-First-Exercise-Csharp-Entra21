@@ -6,23 +6,17 @@ namespace Test.Exercise12
 {
     public class Exercise12
     {
-        public double BiggestNumber(double[] numbers)
-        {
-            var biggestNumber = Double.MinValue;
-            var input = 0.0;
+          public (int even, int odds) SumOfEvenAndOdds(int[] numbers)
+          {
+              var returnedResults = (0, 0);
 
-            for (int index = 0; index < numbers.Length; index++)
-            {
-                input = numbers[index];
-                if (input > biggestNumber)
-                {
-                    biggestNumber = input;
-                }    
-            }
+              foreach (var number in numbers)
+              {
+                  var selectorNumber = (number % 2 == 0)? returnedResults.Item1 +=number : returnedResults.Item2 +=number;
+              }
 
-            return biggestNumber;
-        }
-
+              return returnedResults;
+          } 
     }
 }
 

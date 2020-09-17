@@ -5,37 +5,18 @@ namespace Test.Exercise12
 {
     public class TestExercise12
     {
-        [Fact]
-        public void Should_Return_The_Biggest_Number_In_Array()
+        [Theory]
+        [InlineData(new int[] {2,4,7,10, -13, 43, 1, 622, 43}, 638, 81)]
+        [InlineData(new int[]{3, 0, -9, 10, 15}, 10, 9)]
+        [InlineData(new int[]{-9, -5, -4, -3, 10, -2}, 4, -17)]
+        public void Should_Return_Sum_Of_Even_And_Odds_Elements_In_Array(int[] numbers, double even, double odds)
         {
             //Given
             var exercise12 = new Exercise12();
-            var numbers = new double[10]
-            {
-                13,465,7294,836,345,21,345,65,322,12
-            };
 
             //When
-            var result = exercise12.BiggestNumber(numbers);
-            var expectedResult = 7294.0;
-
-            //Then
-            Assert.Equal(expectedResult, result);
-        }
-
-        [Fact]
-        public void Should_Return_The_Biggest_Number_In_Array_With_Negative_Numbers()
-        {
-            //Given
-            var exercise12 = new Exercise12();
-            var numbers = new double[10]
-            {
-                -16,-65,-9, -5, -6, -8, -32, -71161, -98, -98
-            };
-
-            //When
-            var result = exercise12.BiggestNumber(numbers);
-            var expectedResult = -5.0;
+            var expectedResult = (even, odds);
+            var result = exercise12.SumOfEvenAndOdds(numbers);
 
             //Then
             Assert.Equal(expectedResult, result);
