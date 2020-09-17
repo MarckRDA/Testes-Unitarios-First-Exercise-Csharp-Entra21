@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Test.Exercise17
 {
@@ -6,15 +7,13 @@ namespace Test.Exercise17
     {
         public List<int> MutiplicationTable(int product)
         {
-            var factors = new List<int>();
-            
-            for (int count = 1; count < 11; count++)
+            var factors = new List<int>()
             {
-                factors.Add(product * count);
-
-            }
-
-            return factors;
+                1,2,3,4,5,6,7,8,9,10
+            };
+            
+            
+            return factors.Select(n => n * product).ToList();
         }
 
     }
