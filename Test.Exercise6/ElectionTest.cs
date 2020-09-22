@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace Test.Exercise6
@@ -92,8 +93,10 @@ namespace Test.Exercise6
             openElections.Vote(2);
             var resultOfElection = openElections.ShowWinners();
 
+            var shuriWon = candidatesForElection.Find(candidate => candidate.Name == "Shuri");
             //Then
-            Assert.Equal("Shuri won", resultOfElection);
+            Assert.Single(resultOfElection);
+            Assert.Equal(shuriWon, resultOfElection[0]);
         }
 
         [Fact]
@@ -112,9 +115,9 @@ namespace Test.Exercise6
             openElections.Vote(1);
 
             var resultOfElection = openElections.ShowWinners();
-
+            
             //Then
-            Assert.Equal("Second turn: Marcos, Shuri", resultOfElection);
+            Assert.Equal(2, resultOfElection.Count);
         }
         
          

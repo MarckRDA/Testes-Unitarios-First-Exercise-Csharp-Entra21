@@ -25,35 +25,27 @@ namespace Test.Exercise6
             Candidates.Where(candidates => candidates.Id == id).Select(canditate => canditate.Vote++).ToList();
         }
 
-        public string ShowWinners()
+        public List<Candidate> ShowWinners()
         {
-            var winner = Candidates[0];
-            var isDraw = false;
-            var winnerName = winner.Name;
-
+            var winners = new List<Candidate>()
+            {
+                Candidates[0]
+            };
+            
             for (int i = 1; i < Candidates.Count; i++)
             {
-                if (Candidates[i].Vote > winner.Vote)
+                if (Candidates[i].Vote > winners[0].Vote)
                 {
-                    winner = Candidates[i];
-                    winnerName = Candidates[i].Name;
+                    winners.Clear();
+                    winners.Add(Candidates[i]);
                 }
-                else if (Candidates[i].Vote == winner.Vote)
+                else if (Candidates[i].Vote == winners[0].Vote)
                 {
-                    isDraw = true;
-                    winnerName += $", {Candidates[i].Name}";
+                    winners.Add(Candidates[i]);
                 }
             }
 
-
-            if (isDraw)
-            {
-                return $"Second turn: {winnerName}";
-            }
-            else
-            {
-                return $"{winnerName} won";
-            }
+            return winners;
         }
 
     }
