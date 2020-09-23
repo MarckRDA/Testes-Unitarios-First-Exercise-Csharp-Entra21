@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,9 +21,12 @@ namespace Test.Exercise6
 
         public List<string> ShowCandidates() => Candidates.Select(candidate => $"Vote {candidate.Id} for candidate {candidate.Name}").ToList();
 
-        public void Vote(int id)
+        public List<Guid> getCandidateIdByName(string name) => Candidates.Where(candidate => candidate.Name == name).Select(canditate => canditate.Id).ToList();
+        
+        public Guid getCandidateIdByCpf(string cpf) =>  Candidates.First(candidate => candidate.Cpf == cpf).Id;
+        public void Vote(Guid id)
         {
-            Candidates.Where(candidates => candidates.Id == id).Select(canditate => canditate.Vote++).ToList();
+            Candidates.First(candidates => candidates.Id == id).Vote++;
         }
 
         public List<Candidate> ShowWinners()

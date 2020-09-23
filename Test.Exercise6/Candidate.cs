@@ -1,26 +1,19 @@
+using System;
+
 namespace Test.Exercise6
 {
     public class Candidate
     {
-        public int Id
-        {
-            get { return _id; }
-            set
-            {
-                if (value > 0)
-                {
-                    _id = value;
-                }
-            }
-        }
-        private int _id;
+        public Guid Id {get; set;}      
+        public string Cpf {get; set;} 
         public string Name { get; set; }
         public int Vote { get; set; }
 
-        public Candidate(int id, string name)
+        public Candidate(string name, string cpf)
         {
-            this.Id = id;
+            this.Id = new Guid();
             this.Name = name;
+            this.Cpf = cpf;
         }
     }
 }
