@@ -11,7 +11,7 @@ namespace Test.Exercise6
 
         public Candidate(string name, string cpf)
         {
-            this.Id = new Guid();
+            Id = Guid.NewGuid();
             this.Name = name;
             this.Cpf = cpf;
         }

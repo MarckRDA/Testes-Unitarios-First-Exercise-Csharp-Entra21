@@ -21,7 +21,8 @@ namespace Test.Exercise6
 
         public List<string> ShowCandidates() => Candidates.Select(candidate => $"Vote {candidate.Id} for candidate {candidate.Name}").ToList();
 
-        public List<Guid> getCandidateIdByName(string name) => Candidates.Where(candidate => candidate.Name == name).Select(canditate => canditate.Id).ToList();
+        public List<Guid> getCandidatesIdByName(string name) => Candidates.Where(candidate => candidate.Name == name).Select(canditate => canditate.Id).ToList();
+        public Guid getCandidateIdByName(string name) => Candidates.FirstOrDefault(candidate => candidate.Name == name).Id;
         
         public Guid getCandidateIdByCpf(string cpf) =>  Candidates.First(candidate => candidate.Cpf == cpf).Id;
         public void Vote(Guid id)
