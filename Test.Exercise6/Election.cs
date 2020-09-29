@@ -6,13 +6,13 @@ namespace Test.Exercise6
 {
     public class Election
     {
-        public List<Candidate> Candidates { get; set; }
+        public List<Candidate> Candidates { get; private set; }
 
         public bool CreateCandidates(List<Candidate> candidatesForElection, string passwrd)
         {
             if (passwrd == "Pa$$w0rd")
             {
-                Candidates = candidatesForElection.Select(candidate => candidate).ToList();
+                Candidates = candidatesForElection;
                 return true;
             }
 
@@ -20,11 +20,8 @@ namespace Test.Exercise6
         }
 
         public List<string> ShowCandidates() => Candidates.Select(candidate => $"Vote {candidate.Id} for candidate {candidate.Name}").ToList();
-
-        public List<Guid> getCandidatesIdByName(string name) => Candidates.Where(candidate => candidate.Name == name).Select(canditate => canditate.Id).ToList();
-        public Guid getCandidateIdByName(string name) => Candidates.FirstOrDefault(candidate => candidate.Name == name).Id;
-        
-        public Guid getCandidateIdByCpf(string cpf) =>  Candidates.First(candidate => candidate.Cpf == cpf).Id;
+        public List<Candidate> GetCandidatesByName(string name) => Candidates.Where(candidate => candidate.Name == name).ToList();
+        public Guid GetCandidateIdByCpf(string cpf) =>  Candidates.First(candidate => candidate.Cpf == cpf).Id;
         public void Vote(Guid id)
         {
             Candidates.First(candidates => candidates.Id == id).Vote++;

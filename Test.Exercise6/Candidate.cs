@@ -4,7 +4,7 @@ namespace Test.Exercise6
 {
     public class Candidate
     {
-        public Guid Id {get; set;}      
+        public Guid Id {get; private set;}      
         public string Cpf {get; set;} 
         public string Name { get; set; }
         public int Vote { get; set; }

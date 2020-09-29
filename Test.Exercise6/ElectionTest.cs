@@ -61,7 +61,7 @@ namespace Test.Exercise6
             var openElections = new Election();
             var candidatesForElection = MakeCandidates();
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
-            var shuriId = openElections.getCandidateIdByName("Shuri");          
+            var shuriId = openElections.GetCandidateIdByCpf("112.342.543-88");          
             
 
             //When
@@ -80,7 +80,7 @@ namespace Test.Exercise6
             var openElections = new Election();
             var candidatesForElection = MakeCandidates();
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
-            var shuriId = openElections.getCandidateIdByName("Shuri");
+            var shuriId = openElections.GetCandidateIdByCpf("112.342.543-88");          
 
             //When
             openElections.Vote(shuriId);
@@ -100,8 +100,8 @@ namespace Test.Exercise6
             var openElections = new Election();
             var candidatesForElection = MakeCandidates();
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
-            var shuriId = openElections.getCandidateIdByName("Shuri");
-            var marcosId = openElections.getCandidateIdByName("Marcos");
+            var shuriId = openElections.GetCandidateIdByCpf("112.342.543-88");          
+            var marcosId = openElections.GetCandidateIdByCpf("000.123.452-00");
             //When
             openElections.Vote(shuriId);
             openElections.Vote(shuriId);
@@ -143,7 +143,7 @@ namespace Test.Exercise6
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
             
             //When
-            var shuriSegundaId = openElections.getCandidateIdByCpf("145.098.756-98");
+            var shuriSegundaId = openElections.GetCandidateIdByCpf("145.098.756-98");
             
             //Then
             Assert.Equal(candidateShuriSecond.Id, shuriSegundaId);
@@ -160,8 +160,8 @@ namespace Test.Exercise6
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
             
             //When
-            var expectedResult = new List<Guid>(){candidatesForElection[1].Id, candidateShuriSecond.Id};
-            var twoIdsShuri = openElections.getCandidatesIdByName("Shuri");
+            var expectedResult = new List<Candidate>(){candidatesForElection[1], candidateShuriSecond};
+            var twoIdsShuri = openElections.GetCandidatesByName("Shuri");
             
             //Then
             Assert.Equal(expectedResult, twoIdsShuri);
@@ -176,7 +176,7 @@ namespace Test.Exercise6
             var candidateShuriSecond = new Candidate("Shuri", "145.098.756-98");
             candidatesForElection.Add(candidateShuriSecond);
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
-            var shuriSecondId = openElections.getCandidateIdByCpf("145.098.756-98");
+            var shuriSecondId = openElections.GetCandidateIdByCpf("145.098.756-98");
             
             //When
             openElections.Vote(shuriSecondId);
