@@ -69,8 +69,8 @@ namespace Test.Exercise6
             openElections.Vote(shuriId);
 
             // //Then
-            var shuriVotes = openElections.Candidates.Find(candidate => candidate.Id == shuriId);
-            Assert.Equal(2, shuriVotes.Vote);
+            var shuriVotes = openElections.GetVotes(shuriId);
+            Assert.Equal(2, shuriVotes);
         }
         
         [Fact]
