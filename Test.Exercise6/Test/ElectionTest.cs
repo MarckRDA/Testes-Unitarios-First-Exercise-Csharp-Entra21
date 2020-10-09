@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Domain;
 using Xunit;
 
-namespace Test.Exercise6
+namespace Test
 {
     public class ElectionTest
     {
@@ -11,7 +12,7 @@ namespace Test.Exercise6
         {
             //Given
             var openElections = new Election();
-            var candidatesForElection = MakeCandidates();
+            var candidatesForElection = PreCandidatesFactory();
             //When
             var result = openElections.CreateCandidates(candidatesForElection, "wrongPasswrd");
 
@@ -25,7 +26,7 @@ namespace Test.Exercise6
         {
             //Given
             var openElections = new Election();
-            var candidatesForElection = MakeCandidates();
+            var candidatesForElection = PreCandidatesFactory();
 
             //When
             var result = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
@@ -40,7 +41,7 @@ namespace Test.Exercise6
         {
             //Given
             var openElections = new Election();
-            var candidatesForElection = MakeCandidates();
+            var candidatesForElection = PreCandidatesFactory();
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
 
             //When
@@ -57,7 +58,7 @@ namespace Test.Exercise6
         {
             //Given
             var openElections = new Election();
-            var candidatesForElection = MakeCandidates();
+            var candidatesForElection = PreCandidatesFactory();
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
             var shuriId = openElections.GetCandidateIdByCpf("112.342.543-88");          
             
@@ -76,7 +77,7 @@ namespace Test.Exercise6
         {
             //Given
             var openElections = new Election();
-            var candidatesForElection = MakeCandidates();
+            var candidatesForElection = PreCandidatesFactory();
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
             var shuriId = openElections.GetCandidateIdByCpf("112.342.543-88");          
 
@@ -96,7 +97,7 @@ namespace Test.Exercise6
         {
             //Given
             var openElections = new Election();
-            var candidatesForElection = MakeCandidates();
+            var candidatesForElection = PreCandidatesFactory();
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
             var shuriId = openElections.GetCandidateIdByCpf("112.342.543-88");          
             var marcosId = openElections.GetCandidateIdByCpf("000.123.452-00");
@@ -119,7 +120,7 @@ namespace Test.Exercise6
         {
             //Given
             var openElections = new Election();
-            var candidatesForElection = MakeCandidates();
+            var candidatesForElection = PreCandidatesFactory();
             var candidateShuriSegunda = new Candidate("Shuri", "145.098.756-98");
             candidatesForElection.Add(candidateShuriSegunda);
             //When
@@ -135,7 +136,7 @@ namespace Test.Exercise6
         {
             //Given
             var openElections = new Election();
-            var candidatesForElection = MakeCandidates();
+            var candidatesForElection = PreCandidatesFactory();
             var candidateShuriSecond = new Candidate("Shuri", "145.098.756-98");
             candidatesForElection.Add(candidateShuriSecond);
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
@@ -152,7 +153,7 @@ namespace Test.Exercise6
         {
             //Given
             var openElections = new Election();
-            var candidatesForElection = MakeCandidates();
+            var candidatesForElection = PreCandidatesFactory();
             var candidateShuriSecond = new Candidate("Shuri", "145.098.756-98");
             candidatesForElection.Add(candidateShuriSecond);
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
@@ -170,7 +171,7 @@ namespace Test.Exercise6
         {
             //Given
             var openElections = new Election();
-            var candidatesForElection = MakeCandidates();
+            var candidatesForElection = PreCandidatesFactory();
             var candidateShuriSecond = new Candidate("Shuri", "145.098.756-98");
             candidatesForElection.Add(candidateShuriSecond);
             var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
@@ -187,7 +188,7 @@ namespace Test.Exercise6
 
 
 
-        public List<Candidate> MakeCandidates()
+        public List<Candidate> PreCandidatesFactory()
         {
             var candidateMarcos = new Candidate("Marcos", "000.123.452-00");
             var candidateShuri = new Candidate("Shuri", "112.342.543-88");
