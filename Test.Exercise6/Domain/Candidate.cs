@@ -98,9 +98,24 @@ namespace Domain
 
             if(Name.Any(char.IsDigit) || Name.Any(char.IsSymbol) || Name.Any(char.IsNumber)) return false;
 
-               
             return true;
+        }
 
+        public string PrintPretty()
+        {
+            Name.Trim();
+            
+            var splitedName = Name.Split(" ");
+            var formatedName = "";
+
+            for (int i = 0; i < splitedName.Length; i++)
+            {
+                var name = splitedName[i];
+
+                formatedName += char.ToUpper(name[0]) + name.Substring(1).ToLower() + " "; 
+            }
+
+            return formatedName.Trim();
         }
     }
 }

@@ -109,7 +109,7 @@ namespace Tests
 
         [Theory]
         [InlineData("Marcos alves")]
-        [InlineData("sabrina")]
+        [InlineData("sabrina furtado")]
         public void Should_return_True_Giving_Correct_Format_Names(string name)
         {
             //Given
@@ -120,6 +120,20 @@ namespace Tests
 
             //Then
             Assert.True(isValid);
+        }
+
+        
+        [Fact]
+        public void Should_Return_A_Correctly_Format_Name()
+        {
+            //Given
+            var candidato = new Candidate("aManda BarKley rAccon", "123.453.112-87");
+
+            //When
+            var formatedName = candidato.PrintPretty();
+
+            //Then
+            Assert.Equal("Amanda Barkley Raccon", formatedName);
         }
     }
 }
