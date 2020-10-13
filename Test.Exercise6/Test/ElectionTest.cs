@@ -64,12 +64,45 @@ namespace Test
             
 
             //When
-            openElections.Vote(shuriId);
-            openElections.Vote(shuriId);
+            openElections.VoteCandidate(shuriId);
+            openElections.VoteCandidate(shuriId);
 
             // //Then
             var shuriVotes = openElections.GetVotes(shuriId);
             Assert.Equal(2, shuriVotes);
+        }
+
+        [Fact]
+        public void Should_Return_False_Trying_To_Vote_In_Shuri()
+        {
+            //Given
+            var openElections = new Election();
+            var candidatesForElection = PreCandidatesFactory();
+            var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
+              
+
+            //When
+            var result = openElections.VoteCandidateByCpf("112.342.553-88");
+
+            // //Then
+            Assert.False(result);
+        }
+
+        
+        [Fact]
+        public void Should_Return_True_Trying_To_Vote_In_Shuri()
+        {
+            //Given
+            var openElections = new Election();
+            var candidatesForElection = PreCandidatesFactory();
+            var subscribedForElection = openElections.CreateCandidates(candidatesForElection, "Pa$$w0rd");
+              
+
+            //When
+            var result = openElections.VoteCandidateByCpf("112.346.543-88");
+
+            // //Then
+            Assert.False(result);
         }
         
         [Fact]
@@ -82,8 +115,8 @@ namespace Test
             var shuriId = openElections.GetCandidateIdByCpf("112.342.543-88");          
 
             //When
-            openElections.Vote(shuriId);
-            openElections.Vote(shuriId);
+            openElections.VoteCandidate(shuriId);
+            openElections.VoteCandidate(shuriId);
             var resultOfElection = openElections.ShowWinners();
 
             var shuriWon = candidatesForElection.Find(candidate => candidate.Name == "Shuri");
@@ -102,11 +135,11 @@ namespace Test
             var shuriId = openElections.GetCandidateIdByCpf("112.342.543-88");          
             var marcosId = openElections.GetCandidateIdByCpf("000.123.452-00");
             //When
-            openElections.Vote(shuriId);
-            openElections.Vote(shuriId);
+            openElections.VoteCandidate(shuriId);
+            openElections.VoteCandidate(shuriId);
             
-            openElections.Vote(marcosId);
-            openElections.Vote(marcosId);
+            openElections.VoteCandidate(marcosId);
+            openElections.VoteCandidate(marcosId);
 
             var resultOfElection = openElections.ShowWinners();
             
@@ -178,9 +211,9 @@ namespace Test
             var shuriSecondId = openElections.GetCandidateIdByCpf("145.098.756-98");
             
             //When
-            openElections.Vote(shuriSecondId);
-            openElections.Vote(shuriSecondId);
-            var shuriSecondVotes = candidatesForElection.Find(candidate => candidate.Id == shuriSecondId).Vote;
+            openElections.VoteCandidate(shuriSecondId);
+            openElections.VoteCandidate(shuriSecondId);
+            var shuriSecondVotes = candidatesForElection.Find(candidate => candidate.Id == shuriSecondId).Votes;
 
             //Then
             Assert.Equal(2, shuriSecondVotes);

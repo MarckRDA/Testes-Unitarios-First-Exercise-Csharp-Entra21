@@ -25,12 +25,26 @@ namespace Domain
         public List<string> ShowCandidates() => candidates.Select(candidate => $"Vote {candidate.Id} for candidate {candidate.Name}").ToList();
         public List<Candidate> GetCandidatesByName(string name) => candidates.Where(candidate => candidate.Name == name).ToList();
         public Guid GetCandidateIdByCpf(string cpf) =>  candidates.First(candidate => candidate.Cpf == cpf).Id;
-        public void Vote(Guid id)
+        public void VoteCandidate(Guid id)
         {
-            candidates.First(candidates => candidates.Id == id).Vote++;
+            candidates.First(candidates => candidates.Id == id).Vote();
         }
 
-        public int GetVotes(Guid id) => candidates.First(x => x.Id == id).Vote;
+        public bool VoteCandidateByCpf(string cpf)
+        {
+            var selectedCandidate = candidates.FirstOrDefault(x => x.Cpf == cpf);
+            if (selectedCandidate == null)
+            {
+                return false;
+            }
+            else
+            {
+                selectedCandidate.Vote();
+                return true;
+            }
+        }
+
+        public int GetVotes(Guid id) => candidates.First(x => x.Id == id).Votes;
         public List<Candidate> ShowWinners()
         {
             var winners = new List<Candidate>()
@@ -40,12 +54,12 @@ namespace Domain
             
             for (int i = 1; i < candidates.Count; i++)
             {
-                if (candidates[i].Vote > winners[0].Vote)
+                if (candidates[i].Votes > winners[0].Votes)
                 {
                     winners.Clear();
                     winners.Add(candidates[i]);
                 }
-                else if (candidates[i].Vote == winners[0].Vote)
+                else if (candidates[i].Votes == winners[0].Votes)
                 {
                     winners.Add(candidates[i]);
                 }
