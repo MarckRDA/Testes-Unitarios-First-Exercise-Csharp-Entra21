@@ -92,9 +92,7 @@ namespace Domain
 
         public bool ValidateCandidateName()
         {
-            Name.Trim();
-
-            if (string.IsNullOrEmpty(Name) || string.IsNullOrWhiteSpace(Name)) return false;
+            if (string.IsNullOrEmpty(Name) || string.IsNullOrWhiteSpace(Name) || Name.StartsWith(" ") || Name.EndsWith(" ")) return false;
 
             if(Name.Any(char.IsDigit) || Name.Any(char.IsSymbol) || Name.Any(char.IsNumber)) return false;
 

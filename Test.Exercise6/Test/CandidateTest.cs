@@ -95,6 +95,9 @@ namespace Tests
         [InlineData(null)]
         [InlineData("Sa$@ni")]
         [InlineData("M,12.4 alves")]
+        [InlineData(" Mlves")]
+        [InlineData("Malves  ")]
+        
         public void Should_return_false_Giving_Incorrect_Format_Names(string name)
         {
             //Given
